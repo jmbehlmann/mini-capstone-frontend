@@ -61,6 +61,7 @@ export function Content() {
     axios.delete(`http://localhost:3000/products/${product.id}.json`).then ((response) => {
       setProducts(products.filter((p) => p.id !== product.id));
     });
+    handleClose();
   };
 
   useEffect(handleIndexProducts, [])
