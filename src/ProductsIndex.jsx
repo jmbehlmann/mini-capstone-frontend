@@ -8,6 +8,8 @@ export function ProductsIndex(props) {
           <p>{products.description}</p>
           <p>Price: {products.price}</p>
           <p>Inventory: {products.inventory}</p>
+          <p>Supplier ID: {products.supplier.id}</p>
+          <hr />
         </div>
       ))}
     </div>

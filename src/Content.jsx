@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from "react";
 import { ProductsIndex } from "./ProductsIndex";
+import { ProductsNew } from "./ProductsNew"
 
 export function Content() {
 
@@ -14,12 +15,21 @@ export function Content() {
     });
   };
 
-  useEffect(handleIndexProducts)
+  const handleCreateProduct = (params, successCallback) => {
+    console.log("handleCreateProduct", params);
+    axios.post("http://localhost:3000/products.json", params).then((response) => {
+      setProducts([...products, response.data]);
+      successCallback();
+    });
+  };
+
+  useEffect(handleIndexProducts, [])
 
   return (
     <main>
       <h1>Welcome to This Mess!</h1>
       <ProductsIndex products={products} />
+      <ProductsNew onCreateProduct={handleCreateProduct} />
     </main>
   )
 }
