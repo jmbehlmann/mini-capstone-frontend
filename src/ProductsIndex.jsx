@@ -2,13 +2,16 @@ export function ProductsIndex(props) {
   return (
     <div>
       <h1>All products</h1>
-      {props.products.map((products) => (
-        <div key={products.id}>
-          <h2>{products.name}</h2>
-          <p>{products.description}</p>
-          <p>Price: {products.price}</p>
-          <p>Inventory: {products.inventory}</p>
-          <p>Supplier ID: {products.supplier.id}</p>
+      {props.products.map((product) => (
+        <div key={product.id}>
+          <h2>{product.name}</h2>
+          <p>{product.description}</p>
+          <p>Price: {product.price}</p>
+          <p>Inventory: {product.inventory}</p>
+          <p>Supplier ID: {product.supplier.id}</p>
+          <button onClick={() => props.onShowProduct(product)}>See some stuff</button>
+          <br />
+          <br />
           <hr />
         </div>
       ))}
