@@ -68,13 +68,15 @@ export function Content() {
 
   return (
     <main>
-      <h1>Welcome to This Mess!</h1>
-      <ProductsIndex products={products} onShowProduct={handleShowProduct} />
-      <ProductsNew onCreateProduct={handleCreateProduct} />
-      <Modal show={isProductsShowVisible} onClose={handleClose}>
-        <h1>Check this stuff out!</h1>
-        <ProductsShow product ={currentProduct} onUpdateProduct={handleUpdateProduct} onDestroyProduct={handleDestroyProduct} />
-      </Modal>
+      <div className="container">
+        <h1>Welcome to This Mess!</h1>
+        <ProductsIndex products={products} onShowProduct={handleShowProduct} />
+        <ProductsNew onCreateProduct={handleCreateProduct} />
+        <Modal show={isProductsShowVisible} onClose={handleClose}>
+          <h1>Check this stuff out!</h1>
+          <ProductsShow product ={currentProduct} onUpdateProduct={handleUpdateProduct} onDestroyProduct={handleDestroyProduct} />
+        </Modal>
+      </div>
     </main>
   )
 }

@@ -1,3 +1,8 @@
 html {
   scroll-behavior: smooth;
 }
+
+#root {
+  font-family: Papyrus, fantasy;
+  background-image: url('./assets/brusheezy.jpeg')
+}

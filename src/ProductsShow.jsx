@@ -40,11 +40,11 @@ export function ProductsShow(props) {
         <br/>
         <br/>
         <div>
-        <button type="submit">Are you really gonna submit that?</button>
+        <button className="btn btn-primary" type="submit">Are you really gonna submit that?</button>
         </div>
         <br/>
       </form>
-      <button onClick={handleClick}>DESTROY!</button>
+      <button className="btn btn-primary" onClick={handleClick}>DESTROY!</button>
     </div>
   );
 }
