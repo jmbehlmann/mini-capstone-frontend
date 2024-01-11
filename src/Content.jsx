@@ -8,6 +8,7 @@ import { ProductsShow } from './ProductsShow';
 import { Signup } from "./Signup"
 import { Login } from "./Login";
 import { LogoutLink } from "./LogoutLink";
+import { CartedProducts } from "./CartedProducts";
 
 export function Content() {
 
@@ -70,21 +71,24 @@ export function Content() {
 
   useEffect(handleIndexProducts, [])
 
+
   return (
     <main>
       <div className="container">
         <h1>Welcome to This Mess!</h1>
         <Routes>
+          <Route path="/" element={<ProductsIndex products={products} onShowProduct={handleShowProduct} />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<LogoutLink />} />
+          <Route path="/cart" element={<CartedProducts />} />
           <Route path="/newproduct" element={<ProductsNew onCreateProduct={handleCreateProduct} />} />
         </Routes>
-        <ProductsIndex products={products} onShowProduct={handleShowProduct} />
         <Modal show={isProductsShowVisible} onClose={handleClose}>
           <h1>Check this stuff out!</h1>
           <ProductsShow product ={currentProduct} onUpdateProduct={handleUpdateProduct} onDestroyProduct={handleDestroyProduct} />
         </Modal>
+        {/* <ProductsIndex products={products} onShowProduct={handleShowProduct} /> */}
         {/* <Signup /> */}
         {/* <Login /> */}
         {/* <LogoutLink /> */}
