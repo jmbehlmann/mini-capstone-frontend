@@ -1,9 +1,13 @@
 import axios from 'axios';
 import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 import { ProductsIndex } from "./ProductsIndex";
 import { ProductsNew } from "./ProductsNew"
 import { Modal } from "./Modal"
 import { ProductsShow } from './ProductsShow';
+import { Signup } from "./Signup"
+import { Login } from "./Login";
+import { LogoutLink } from "./LogoutLink";
 
 export function Content() {
 
@@ -70,12 +74,21 @@ export function Content() {
     <main>
       <div className="container">
         <h1>Welcome to This Mess!</h1>
+        <Routes>
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<LogoutLink />} />
+          <Route path="/newproduct" element={<ProductsNew />} />
+        </Routes>
         <ProductsIndex products={products} onShowProduct={handleShowProduct} />
-        <ProductsNew onCreateProduct={handleCreateProduct} />
         <Modal show={isProductsShowVisible} onClose={handleClose}>
           <h1>Check this stuff out!</h1>
           <ProductsShow product ={currentProduct} onUpdateProduct={handleUpdateProduct} onDestroyProduct={handleDestroyProduct} />
         </Modal>
+        {/* <Signup /> */}
+        {/* <Login /> */}
+        {/* <LogoutLink /> */}
+        {/* <ProductsNew onCreateProduct={handleCreateProduct} /> */}
       </div>
     </main>
   )
