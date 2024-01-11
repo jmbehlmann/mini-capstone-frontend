@@ -78,7 +78,7 @@ export function Content() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<LogoutLink />} />
-          <Route path="/newproduct" element={<ProductsNew />} />
+          <Route path="/newproduct" element={<ProductsNew onCreateProduct={handleCreateProduct} />} />
         </Routes>
         <ProductsIndex products={products} onShowProduct={handleShowProduct} />
         <Modal show={isProductsShowVisible} onClose={handleClose}>
