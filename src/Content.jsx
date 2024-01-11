@@ -8,7 +8,9 @@ import { ProductsShow } from './ProductsShow';
 import { Signup } from "./Signup"
 import { Login } from "./Login";
 import { LogoutLink } from "./LogoutLink";
-import { CartedProducts } from "./CartedProducts";
+import { CartedProductsIndex } from "./CartedProductsIndex";
+// import { OrdersShow } from "./OrdersShow";
+// import { OrdersIndex } from "./OrdersIndex";
 
 export function Content() {
 
@@ -81,7 +83,7 @@ export function Content() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<LogoutLink />} />
-          <Route path="/cart" element={<CartedProducts />} />
+          <Route path="/cart" element={<CartedProductsIndex />} />
           <Route path="/newproduct" element={<ProductsNew onCreateProduct={handleCreateProduct} />} />
         </Routes>
         <Modal show={isProductsShowVisible} onClose={handleClose}>

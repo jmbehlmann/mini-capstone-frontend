@@ -2,10 +2,10 @@ import axios from "axios"
 import { useState, useEffect } from "react";
 
 
-export function CartedProducts() {
+export function CartedProductsIndex() {
   const [cartedProducts, setCartedProducts] = useState([]);
 
-  const handleCartedProducts = () => {
+  const getCartedProducts = () => {
     console.log("handleCartedProducts");
     axios.get("http://localhost:3000/carted_products.json").then((response) => {
       console.log(response.data);
@@ -13,12 +13,20 @@ export function CartedProducts() {
     });
   };
 
-  useEffect(handleCartedProducts, [])
+  const createOrder = () => {
+    console.log("creating order")
+    axios.post("http://localhost:3000/orders.json").then ((response) => {
+      console.log(response.data)
+    })
+  }
+
+  useEffect(getCartedProducts, [])
 
 
   return (
     <div>
       <h1>Your Cart</h1>
+      <button className="btn btn-primary" type="submit">Checkout</button>
       {cartedProducts.map((carted_product) => (
         <div key={carted_product.id}>
           <div className="row">
@@ -36,6 +44,7 @@ export function CartedProducts() {
 
         </div>
       ))}
+      {/* <button className="btn btn-primary" onClick={createOrder}>Checkout</button> */}
     </div>
 
 
@@ -43,6 +52,3 @@ export function CartedProducts() {
   );
 }
 
-          // <h2>{carted_product.product.name}</h2>
-          // <h2>{carted_product.product.price}</h2>
-          // <h2>{carted_product.quantity}</h2>
