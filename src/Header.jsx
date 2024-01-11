@@ -29,6 +29,9 @@ export function Header() {
               <NavLink className="nav-link" to="/cart">Cart</NavLink>
             </li>
             <li className="nav-item">
+              <NavLink className="nav-link" to="/order">Order</NavLink>
+            </li>
+            <li className="nav-item">
               <NavLink className="nav-link" to="/newproduct">New Product</NavLink>
             </li>
             <li className="nav-item dropdown">
