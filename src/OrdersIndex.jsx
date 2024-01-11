@@ -1,6 +1,7 @@
 import axios from "axios"
 import {useState, useEffect} from "react"
 
+
 export function OrdersIndex() {
   const [orders, setOrders] = useState([]);
 
@@ -24,9 +25,9 @@ export function OrdersIndex() {
               <div className="card mb-6">
                 <div className="card-body">
                   <h5 className="card-title">Order #{order.id}</h5>
-                  <p className="card-text">Subtotal: {order.subtotal}</p>
-                  <p className="card-text">Tax: {order.tax}</p>
+                  <p className="card-text">Date: </p>
                   <p className="card-text">Total: {order.total}</p>
+                  <button className="btn btn-primary">Order Details</button>
                 </div>
               </div>
               <br />
