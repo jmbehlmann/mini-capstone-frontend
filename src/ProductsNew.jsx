@@ -1,15 +1,17 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export function ProductsNew(props) {
   const [suppliers, setSuppliers] = useState([])
+  const navigate = useNavigate();
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
     props.onCreateProduct(params, () => event.target.reset());
-    <Link to="/"></Link>
+    navigate('/');
   };
 
   const suppliersIndex = () => {

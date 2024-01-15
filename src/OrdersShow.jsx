@@ -33,6 +33,8 @@ export function OrdersShow({}) {
                   <p className="card-text">Subtotal: {order.subtotal}</p>
                   <p className="card-text">Tax: {order.tax}</p>
                   <p className="card-text">Total: {order.total}</p>
+                  {/* loop through products */}
+                  <p className="card-text">: {order.total}</p>
                 </div>
               </div>
               <br />

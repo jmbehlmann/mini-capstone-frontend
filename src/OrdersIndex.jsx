@@ -1,8 +1,10 @@
 import axios from "axios"
 import {useState, useEffect} from "react"
+import { Link, useNavigate } from "react-router-dom"
 
 
 export function OrdersIndex() {
+  const navigate = useNavigate();
   const [orders, setOrders] = useState([]);
 
   const getOrders = () => {
@@ -27,7 +29,9 @@ export function OrdersIndex() {
                   <h5 className="card-title">Order #{order.id}</h5>
                   <p className="card-text">Date: </p>
                   <p className="card-text">Total: {order.total}</p>
-                  <button className="btn btn-primary">Order Details</button>
+                  <Link to={`/orders/${order.id}`}>
+                    <button className="btn btn-primary">Order Details</button>
+                  </Link>
                 </div>
               </div>
               <br />
