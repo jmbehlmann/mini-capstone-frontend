@@ -40,7 +40,6 @@ export function OrdersIndex() {
 
         </div>
       ))}
-      {/* <button className="btn btn-primary" onClick={createOrder}>Checkout</button> */}
     </div>
   )
 }

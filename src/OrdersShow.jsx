@@ -4,11 +4,9 @@ import { useParams } from 'react-router-dom';
 
 
 export function OrdersShow({}) {
-
   const {orderId} = useParams();
-  console.log(orderId)
+  const [order, setOrder] = useState ({carted_products:[]})
 
-  const [order, setOrder] = useState ({})
 
   const getOrder = () => {
     console.log("getting order");
@@ -29,12 +27,23 @@ export function OrdersShow({}) {
               <div className="card mb-6">
                 <div className="card-body">
                   <h5 className="card-title">Order #{order.id}</h5>
-                  <p className="card-text">Date: </p>
+                  <p className="card-text">Date: {order.created_at}</p>
                   <p className="card-text">Subtotal: {order.subtotal}</p>
                   <p className="card-text">Tax: {order.tax}</p>
                   <p className="card-text">Total: {order.total}</p>
                   {/* loop through products */}
-                  <p className="card-text">: {order.total}</p>
+                  <p>  -  </p>
+                  <p>Products in this order:</p>
+                  {order.carted_products.map(carted_product =>
+                    <div key={carted_product.id}>
+                      <p>Name: {carted_product.name}</p>
+                      <p>Image: :)</p>
+                      <p>Price: {carted_product.price}</p>
+                      <p>Quantity: {carted_product.quantity}</p>
+                      {/* <p>Image: {carted_product.quantity}</p> */}
+                      <p>-</p>
+                    </div>
+                  )}
                 </div>
               </div>
               <br />

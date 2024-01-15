@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { useNavigate } from "react-router-dom"
 
 export function ProductsShow(props) {
 
@@ -34,7 +35,7 @@ export function ProductsShow(props) {
           <input name="product_id" type="hidden" defaultValue={props.product.id} />
         </div>
         <div>
-          Quantity: <input name="quantity" type="text" />
+          Quantity: <input name="quantity" type="text" defaultValue="1"/>
         </div>
         <button className="btn btn-primary" type="submit">Add To Cart</button>
       </form>

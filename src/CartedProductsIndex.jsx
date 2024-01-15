@@ -26,7 +26,7 @@ export function CartedProductsIndex() {
   return (
     <div>
       <h1>Your Cart</h1>
-      <button className="btn btn-primary" onCLick={{createOrder}}>Checkout</button>
+      <button className="btn btn-primary" onClick={{createOrder}}>Checkout</button>
       {cartedProducts.map((carted_product) => (
         <div key={carted_product.id}>
           <div className="row">
