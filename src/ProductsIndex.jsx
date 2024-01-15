@@ -7,8 +7,8 @@ export function ProductsIndex(props) {
           <div className="row">
             <div className="col-6">
               <div className="card mb-6">
-              <img src="..." class="card-img-top" alt="Nice Image!"></img>
-              {/* <img src={product.images[0].url} class="card-img-top" alt="Nice Image!"></img> */}
+              <img src="..." className="card-img-top" alt="Nice Image!"></img>
+              {/* <img src={product.images[0].url} Name="card-img-top" alt="Nice Image!"></img> */}
                 <div className="card-body">
                   <h5 className="card-title">{product.name}</h5>
                   <p className="card-text">{product.description}</p>

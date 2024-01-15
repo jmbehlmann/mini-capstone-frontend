@@ -1,43 +1,29 @@
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+
 export function ProductsNew(props) {
+  const [suppliers, setSuppliers] = useState([])
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
     props.onCreateProduct(params, () => event.target.reset());
+    <Link to="/"></Link>
   };
+
+  const suppliersIndex = () => {
+    console.log("suppliersIndex")
+    axios.get(`http://localhost:3000/suppliers.json`)
+      .then((response) => {
+        setSuppliers(response.data)
+      })
+  }
+
+  useEffect(suppliersIndex, [])
 
   return (
     <div>
-      {/* <h1>New Product</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          Name: <input name="name" type="text" />
-        </div>
-        <br/>
-        <div>
-          Description: <input name="description" type="text" />
-        </div>
-        <br/>
-        <div>
-          Price: <input name="price" type="text" />
-        </div>
-        <br/>
-        <div>
-          Inventory: <input name="inventory" type="text" />
-        </div>
-        <br/>
-        <div>
-          Supplier ID: <input name="supplier_id" type="text" />
-        </div>
-        <br/>
-        <br/>
-        <div>
-        <button type="submit">Are you really gonna submit that?</button>
-        </div>
-        <br/>
-      </form>
-      <hr />
-    </div> */}
 
     <form onSubmit={handleSubmit}>
       <div className="mb-3">
@@ -58,8 +44,12 @@ export function ProductsNew(props) {
         <input name="inventory" type="text" className="form-control" id="inventory" />
       </div>
       <div className="mb-3">
-        <label for="supplier_id" className="form-label">Supplier ID</label>
-        <input name="supplier_id" type="text" className="form-control" id="supplier_id" />
+        <select name="supplier" className="form-select" aria-label="Default select example">
+          <option selected>Supplier</option>
+          {suppliers.map(supplier => (
+            <option>{supplier.name}</option>
+          ))}
+        </select>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
