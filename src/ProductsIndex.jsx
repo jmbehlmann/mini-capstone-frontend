@@ -6,9 +6,13 @@ export function ProductsIndex(props) {
   return (
     <div>
       <h1>Products</h1>
-      <p>Search: <input type="text" value={searchTerm} onChange={(event) => setSearchTerm(event.target.value) } lits="names" /> </p>
-      {props.products
-        .filter(
+      <p>Search: <input type="text" value={searchTerm} onChange={(event) => setSearchTerm(event.target.value) } list="names" /> </p>
+      <datalist id="names">
+        {props.products.map(product => (
+          <option key={product.id}>{product.name}</option>
+        ))}
+      </datalist>
+      {props.products.filter(
           product => product.name.toLowerCase()
           .includes(searchTerm.toLowerCase())
         )
@@ -21,7 +25,8 @@ export function ProductsIndex(props) {
                 <div className="card-body">
                   <h5 className="card-title">{product.name}</h5>
                   <p className="card-text">{product.description}</p>
-                  <p className="card-text">{product.inventory}</p>
+                  <p className="card-text">Price: ${product.price}</p>
+                  {/* <p className="card-text">Inventory:{product.inventory}</p> */}
                   <button className="btn btn-primary" onClick={() => props.onShowProduct(product)}>See some stuff</button>
                 </div>
               </div>
