@@ -35,7 +35,7 @@ export function CartedProductsIndex() {
               <div className="card mb-6">
                 <div className="card-body">
                   <h5 className="card-title">{carted_product.product.name}</h5>
-                  {/* <img src={carted_product.product.images[0].url} className="card-img-top" alt="Nice Image!"></img> */}
+                  <img src={carted_product.images[0].url} className="card-img-top" alt="Nice Image!"></img>
                   <p className="card-text">Price: {carted_product.product.price}</p>
                   <p className="card-text">Quantity: {carted_product.quantity}</p>
                 </div>
