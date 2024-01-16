@@ -37,10 +37,9 @@ export function OrdersShow({}) {
                 {order.carted_products.map(carted_product =>
                   <div key={carted_product.id}>
                     <p>Name: {carted_product.name}</p>
-                    <p>Image: :)</p>
+                    <img src={carted_product.images[0].url} className="card-img-top" alt="Nice Image!"></img>
                     <p>Price: {carted_product.price}</p>
                     <p>Quantity: {carted_product.quantity}</p>
-                    {/* <p>Image: {carted_product.quantity}</p> */}
                     <p>-</p>
                   </div>
                   )}
