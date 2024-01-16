@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useNavigate } from "react-router-dom"
+import { redirect } from "react-router-dom"
 
 export function ProductsShow(props) {
 
@@ -10,6 +10,7 @@ export function ProductsShow(props) {
     axios.post('http://localhost:3000/carted_products.json', params).then(response => {
       console.log(response.data)
     })
+    return redirect("/")
   }
 
   const handleSubmit = (event) => {
