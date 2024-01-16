@@ -11,7 +11,7 @@ export function Header() {
       </li>
     </>
     )
-   } else {
+  } else {
     loggedInStatus = (
     <>
       <li className="nav-item">
@@ -22,7 +22,7 @@ export function Header() {
       </li>
     </>
     )
-    }
+  }
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -36,9 +36,6 @@ export function Header() {
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="/">Home</a>
             </li>
-            {/* <li className="nav-item">
-              <a className="nav-link" href="/">Link</a>
-            </li> */}
             <li className="nav-item">
               <NavLink className="nav-link" to="/cart">Cart</NavLink>
             </li>
@@ -48,7 +45,9 @@ export function Header() {
             <li className="nav-item">
               <NavLink className="nav-link" to="/newproduct">New Product</NavLink>
             </li>
+
             {loggedInStatus}
+
             {/* <li className="nav-item">
               <NavLink className="nav-link" to="/login" >Login</NavLink>
             </li>
@@ -58,6 +57,7 @@ export function Header() {
             <li className="nav-item">
               <NavLink className="nav-link" to="/logout">Log Out</NavLink>
             </li> */}
+
             {/* <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Dropdown
@@ -69,9 +69,11 @@ export function Header() {
                 <li><a className="dropdown-item" href="#">Something else here</a></li>
               </ul>
             </li> */}
+
             {/* <li className="nav-item">
               <a className="nav-link disabled" aria-disabled="true">Don't click it</a>
             </li> */}
+
           </ul>
           <form className="d-flex" role="search">
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
