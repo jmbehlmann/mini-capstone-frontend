@@ -1,10 +1,33 @@
 import { Link, NavLink } from "react-router-dom";
 
 export function Header() {
+  let loggedInStatus;
+
+  if (localStorage.jwt) {
+   loggedInStatus = (
+    <>
+      <li className="nav-item">
+        <NavLink className="nav-link" to="/logout">Log Out</NavLink>
+      </li>
+    </>
+    )
+   } else {
+    loggedInStatus = (
+    <>
+      <li className="nav-item">
+        <NavLink className="nav-link" to="/login" >Login</NavLink>
+      </li>
+      <li className="nav-item">
+        <NavLink className="nav-link" to="/signup">Sign Up!</NavLink>
+      </li>
+    </>
+    )
+    }
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">Navi-Gator</a>
+        <a className="navbar-brand" href="/">Navi-Gator</a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -13,18 +36,9 @@ export function Header() {
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="/">Home</a>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a className="nav-link" href="/">Link</a>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/login" >Login</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/signup">Sign Up!</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/logout">Log Out</NavLink>
-            </li>
+            </li> */}
             <li className="nav-item">
               <NavLink className="nav-link" to="/cart">Cart</NavLink>
             </li>
@@ -34,7 +48,17 @@ export function Header() {
             <li className="nav-item">
               <NavLink className="nav-link" to="/newproduct">New Product</NavLink>
             </li>
-            <li className="nav-item dropdown">
+            {loggedInStatus}
+            {/* <li className="nav-item">
+              <NavLink className="nav-link" to="/login" >Login</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/signup">Sign Up!</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/logout">Log Out</NavLink>
+            </li> */}
+            {/* <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Dropdown
               </a>
@@ -44,10 +68,10 @@ export function Header() {
                 <li><hr className="dropdown-divider" /></li>
                 <li><a className="dropdown-item" href="#">Something else here</a></li>
               </ul>
-            </li>
-            <li className="nav-item">
+            </li> */}
+            {/* <li className="nav-item">
               <a className="nav-link disabled" aria-disabled="true">Don't click it</a>
-            </li>
+            </li> */}
           </ul>
           <form className="d-flex" role="search">
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />

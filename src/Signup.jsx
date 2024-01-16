@@ -33,7 +33,7 @@ export function Signup() {
       <form onSubmit={handleSubmit}>
         <div>
           Name: <input name="name" type="text" value={userName} onChange={(event) => setUserName(event.target.value) } maxLength="30"/>
-          <small>{30 - userName.length} characters remaning</small>
+          <sub>{30 - userName.length} characters remaning</sub>
         </div>
         <div>
           Email: <input name="email" type="email" />

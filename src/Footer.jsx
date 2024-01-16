@@ -3,7 +3,7 @@ export function Footer() {
     <footer>
       <br />
       <br />
-      <p>Copyright 2023</p>
+      <p>Copyright 2024</p>
     </footer>
   )
 }
