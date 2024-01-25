@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 
 export function ProductsNew(props) {
   const [suppliers, setSuppliers] = useState([])
+  const [images, setImages] = useState([''])
   const navigate = useNavigate();
 
 
@@ -20,6 +21,11 @@ export function ProductsNew(props) {
       .then((response) => {
         setSuppliers(response.data)
       })
+  }
+
+  const addImageBox = () => {
+    console.log("addImageBox")
+    setImages([...images, ''])
   }
 
   useEffect(suppliersIndex, [])
@@ -45,16 +51,29 @@ export function ProductsNew(props) {
         <label for="inventory" className="form-label">Inventory</label>
         <input name="inventory" type="text" className="form-control" id="inventory" />
       </div>
+
+      {images.map((image) => (
+        <>
+          <div className="mb-3">
+            <label for="image" className="form-label">Image</label>
+            <input name="images[]" type="text" className="form-control" id="image" />
+          </div>
+        </>
+      ))}
+
       <div className="mb-3">
         <select name="supplier" className="form-select" aria-label="Default select example">
           <option selected>Supplier</option>
           {suppliers.map(supplier => (
-            <option>{supplier.name}</option>
+            <option key={supplier.idf}>{supplier.name}</option>
           ))}
         </select>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+
+    <button type="submit" class="btn btn-primary" onClick={addImageBox}>More Images</button>
+
     </div>
   );
 }
