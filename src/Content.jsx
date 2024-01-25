@@ -91,7 +91,6 @@ export function Content() {
           <Route path="/newproduct" element={<ProductsNew onCreateProduct={handleCreateProduct} />} />
         </Routes>
         <Modal show={isProductsShowVisible} onClose={handleClose}>
-          <h1>Check this stuff out!</h1>
           <ProductsShow product ={currentProduct} onUpdateProduct={handleUpdateProduct} onDestroyProduct={handleDestroyProduct} onClose={handleClose} />
         </Modal>
         {/* <ProductsIndex products={products} onShowProduct={handleShowProduct} /> */}

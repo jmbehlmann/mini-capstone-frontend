@@ -34,46 +34,50 @@ export function ProductsNew(props) {
     <div>
 
     <form onSubmit={handleSubmit}>
-      <div className="mb-3">
-        <label for="name" className="form-label">Product Name</label>
-        <input name="name" type="text" className="form-control" id="name" aria-describedby="emailHelp" />
-        <div id="emailHelp" className="form-text"></div>
+      <div>
+        <label for="name" >Product Name</label>
+        <input name="name" type="text" id="name" aria-describedby="emailHelp" />
       </div>
-      <div className="mb-3">
-        <label for="description" className="form-label">Description</label>
-        <input name="description" type="text" className="form-control" id="description" />
+      <p></p>
+      <div>
+        <label for="description" >Description</label>
+        <input name="description" type="text" id="description" />
       </div>
-      <div className="mb-3">
-        <label for="price" className="form-label">Price</label>
-        <input name="price" type="text" className="form-control" id="price" />
+      <p></p>
+      <div>
+        <label for="price" >Price</label>
+        <input name="price" type="text" id="price" />
       </div>
-      <div className="mb-3">
-        <label for="inventory" className="form-label">Inventory</label>
-        <input name="inventory" type="text" className="form-control" id="inventory" />
+      <p></p>
+      <div>
+        <label for="inventory" >Inventory</label>
+        <input name="inventory" type="text" id="inventory" />
       </div>
+      <p></p>
 
       {images.map((image) => (
         <>
-          <div className="mb-3">
-            <label for="image" className="form-label">Image</label>
-            <input name="images[]" type="text" className="form-control" id="image" />
+          <div>
+            <label>Image</label>
+            <input name="images[]" type="text" id="image" />
           </div>
         </>
       ))}
+      <p></p>
 
-      <div className="mb-3">
-        <select name="supplier" className="form-select" aria-label="Default select example">
+      <div>
+        <select name="supplier"  aria-label="Default select example">
           <option selected>Supplier</option>
           {suppliers.map(supplier => (
             <option key={supplier.idf}>{supplier.name}</option>
           ))}
         </select>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <p></p>
+      <button type="submit">Submit</button>
     </form>
-
-    <button type="submit" class="btn btn-primary" onClick={addImageBox}>More Images</button>
-
+    <p></p>
+    <button type="submit" onClick={addImageBox}>More Images</button>
     </div>
   );
 }
