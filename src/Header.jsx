@@ -45,6 +45,9 @@ export function Header() {
             <li className="nav-item">
               <NavLink className="nav-link" to="/newproduct">New Product</NavLink>
             </li>
+            {/* <li className="nav-item">
+              <NavLink className="nav-link" to="/chart">You want a chart?</NavLink>
+            </li> */}
 
             {loggedInStatus}
 

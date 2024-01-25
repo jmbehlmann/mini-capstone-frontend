@@ -11,6 +11,7 @@ import { LogoutLink } from "./LogoutLink";
 import { CartedProductsIndex } from "./CartedProductsIndex";
 import { OrdersShow } from "./OrdersShow";
 import { OrdersIndex } from "./OrdersIndex";
+import { Chart } from "./Chart";
 
 export function Content() {
 
@@ -85,12 +86,13 @@ export function Content() {
           <Route path="/logout" element={<LogoutLink />} />
           <Route path="/cart" element={<CartedProductsIndex />} />
           <Route path="/orders" element={<OrdersIndex />} />
+          <Route path="/chart" element={<Chart />} />
           <Route path="/orders/:orderId" element={<OrdersShow />} />
           <Route path="/newproduct" element={<ProductsNew onCreateProduct={handleCreateProduct} />} />
         </Routes>
         <Modal show={isProductsShowVisible} onClose={handleClose}>
           <h1>Check this stuff out!</h1>
-          <ProductsShow product ={currentProduct} onUpdateProduct={handleUpdateProduct} onDestroyProduct={handleDestroyProduct} />
+          <ProductsShow product ={currentProduct} onUpdateProduct={handleUpdateProduct} onDestroyProduct={handleDestroyProduct} onClose={handleClose} />
         </Modal>
         {/* <ProductsIndex products={products} onShowProduct={handleShowProduct} /> */}
         {/* <Signup /> */}
